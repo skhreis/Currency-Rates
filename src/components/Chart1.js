@@ -15,14 +15,14 @@ function Chart1(props) {
 	};
 
 
-	const labels = [props.date, props.secondDate, props.middleDate, props.thirdDate, props.today];
+	const labels = [props.date, props.secondDate, props.middleDate, props.fourthDate, props.today];
 	
 	const data = {
 		labels,
 		datasets: [
 		{
 			label: props.currency,
-			data: [0, 0, props.value],
+			data: [props.value1, props.value2, props.value3, props.value4, props.value5],
 			borderColor: 'rgb(53, 162, 235)',
 			backgroundColor: 'rgba(53, 162, 235, 0.5)',
 		},

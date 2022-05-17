@@ -3,7 +3,6 @@ import Select from 'react-select'
 import {useState, useEffect} from "react"
 import currencyData from '../mockData/currencyData';
 import Chart1 from './Chart1'
-import Chart2 from './Chart2'
 // import Chart3 from './Chart3'
 // import Chart4 from './Chart4'
 
@@ -31,7 +30,7 @@ import Chart2 from './Chart2'
 //   }, [])
 
 //   return (
-//     <div className="App">
+  //     <div className="App">
 //       hey
 //     </div>
 //   );
@@ -46,12 +45,15 @@ const getDateString = (e) => {
 }
 
 
+let max = new Date()
+max.setDate(max.getDate()-5)
+console.log(getDateString(max))
 
 const MockCurrency = () => {
   // VARIABLES
   let choices = []
-  let time = Math.floor(Date.now() / 1000)
-  const [date, setDate] = useState(getDateString('01-01-1999'))
+  const [edate, setEDate] = useState()
+  const [date, setDate] = useState(getDateString(max))
   const [currency, setCurrency] = useState('USD')
   const [value, setValue] = useState(1)
   const currencies = Object.entries(currencyData.rates)
@@ -71,13 +73,15 @@ const MockCurrency = () => {
   const handleDateChange = (e) => {
     setDate(e.target.value)
     if(date > Math.floor(Date.now() / 1000)) {
-      setDate(Math.floor(Date.now() / 1000))
+      setDate(Math.floor(Date.now() / 1000) + 86400)
     }
+    setEDate((new Date(date).getTime() / 1000) + 86399)
   }
 
   const middleDate = (start, end) => {
     let date1 = new Date(start)
     let date2 = new Date(end)
+    getDateString(new Date(date2 - (date2-date1)/2))
     return getDateString(new Date(date2 - (date2-date1)/2))
   }
 
@@ -86,16 +90,19 @@ return(
     <div className= 'container'>
       <div className= 'graphs'>
         Currency:<Select options={choices} onChange={handleCurrencyChange} value={currency}/>
-        Start Date:<input type='date' max={getDateString(new Date())}  onChange={handleDateChange} value={getDateString(new Date())}/>
+        Start Date:<input type='date' max={getDateString(max)} onChange={handleDateChange} value={date}/>
         <Chart1 
           date={date} 
           today={getDateString(new Date())} 
           currency={currency.label} 
-          value={value.value} 
+          value1={1} 
+          value2={2} 
+          value3={3} 
+          value4={4} 
+          value5={value.value} 
           secondDate={middleDate(date, middleDate(date, new Date()))}
           middleDate={middleDate(date, new Date())}
-          thirdDate={middleDate(middleDate(date, new Date()), getDateString(new Date()))}
-          />
+          fourthDate={middleDate(middleDate(date, new Date()), getDateString(new Date()))}/>
       </div>
       <div className= 'currency-exchange'>
         hey man stop taking so much space
