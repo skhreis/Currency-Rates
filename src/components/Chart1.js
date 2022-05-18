@@ -3,13 +3,13 @@ import { Line } from 'react-chartjs-2'
 
 ChartJS.register( CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend );
 function Chart1(props) {
-	console.log(props)
 	const options = {
 		responsive: true,
 		plugins: {
 		title: {
 			display: true,
-			text: `${props.currency} Data`,
+			text: `${props.currency} Data
+			Current Rate: $${props.value5}`,
 		},
 		},
 	};
