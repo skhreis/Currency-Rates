@@ -3,6 +3,7 @@ import Select from 'react-select'
 import {useState, useEffect} from "react"
 import Chart1 from './Chart1'
 import Exchange from './Exchange'
+import News from './News'
 
 const getDateString = (e) => {
   const today = new Date(e);
@@ -18,9 +19,6 @@ max.setDate(max.getDate()-6)
 const middleDate = (start, end) => {
   let date1 = new Date(start)
   let date2 = new Date(end)
-  console.log(date1)
-  console.log(date2)
-  console.log(getDateString(new Date((date1.getTime() + date2.getTime())/2)))
   getDateString(new Date(date2 - (date2-date1)/2))
   return getDateString(new Date(date2 - (date2-date1)/2))
 }
@@ -83,29 +81,39 @@ function App() {
   return(
     <>
       <div className= 'container'>
-        <div className= 'graphs'>
-          Currency:<Select options={curr} onChange={handleCurrencyChange} value={currency.label}/>
-          Start Date:<input type='date' max={getDateString(max)} onChange={handleDateChange} value={date}/>
-          <Chart1 
-            date={date} 
-            today={getDateString(new Date())} 
-            currency={currency} 
-            value1={curr1} 
-            value2={curr2} 
-            value3={curr3} 
-            value4={curr4} 
-            value5={value} 
-            secondDate={middleDate(date, middleDate(date, new Date()))}
-            middleDate={middleDate(date, new Date())}
-            fourthDate={middleDate(middleDate(date, new Date()), getDateString(new Date()))}/>
+        <div className= 'graphs-container'>
+          <div className ='app-headers'>Currency History</div>
+          <div className= 'graphs'>
+            <div className = 'options-container'>
+              <div className ='chart-text'>Currency:</div><Select options={curr} onChange={handleCurrencyChange} value={currency.label}/>
+              <div className ='chart-text'>Start Date:</div><input type='date' max={getDateString(max)} onChange={handleDateChange} value={date}/>
+            </div>
+            <Chart1 
+              date={date} 
+              today={getDateString(new Date())} 
+              currency={currency} 
+              value1={curr1} 
+              value2={curr2} 
+              value3={curr3} 
+              value4={curr4} 
+              value5={value} 
+              secondDate={middleDate(date, middleDate(date, new Date()))}
+              middleDate={middleDate(date, new Date())}
+              fourthDate={middleDate(middleDate(date, new Date()), getDateString(new Date()))}/>
+          </div>
         </div>
         <div className= 'currency-exchange'>
+        <div className ='app-headers'>Currency Exchange</div>
           <Exchange options={curr}/>
         </div>
         <div className= 'news-feed'>
-          hey man stop taking so much space
+          <div className = 'app-headers'>News</div>
+          <div className ='scroll'>
+            <News />
+          </div>
         </div>
         <div className= 'my-info'>
+        <div className ='app-headers'>My Info</div>
           hey man stop taking so much space
         </div>
       </div>

@@ -1,0 +1,26 @@
+.select{
+	width:269px;
+	border-radius: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.exchange-container{
+	width: 660px;
+}
+
+.input{
+	width:200px;
+	border-radius: 5px;
+}
+
+.third {
+	border-color: #3498db;
+	color: #000;
+	box-shadow: 0 0 40px 40px #3498db inset, 0 0 0 0 #3498db;
+	-webkit-transition: all 150ms ease-in-out;
+	transition: all 150ms ease-in-out;
+  }
+  .third:hover {
+	box-shadow: 0 0 10px 0 #3498db inset, 0 0 10px 4px #3498db;
+  }

@@ -1,6 +1,101 @@
+html{
+	display:flex;
+	background-color: #36b3b3;
+}
+
+canvas{
+	background-color: white;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
 .container{
 	display: grid;
+	grid-template-columns: 50% 25%;
 	grid-template-rows: 1fr 1fr;
-	grid-template-columns: 1fr 1fr;
 	gap: 2em;
+	border-left: 100px;
+	box-shadow: 10px;
+}
+
+.graphs-container{
+	border-radius: 100px;
+	padding-top: 100px;
+	padding-left: 200px;
+	height: 400px;
+	width: 50%;
+}
+
+.css-b62m3t-container{
+	width: 100px;
+}
+
+.options-container{
+	display: flex;
+	gap: 25px;
+}
+
+.graphs{
+	background-color: white;
+	width:660px;
+	height:200px;
+}
+
+.currency-exchange{
+	padding-left: 100px;
+	padding-top: 100px;
+	height: auto;
+	width: 25%;
+}
+
+.news-feed{
+	padding-left: 200px;
+}
+
+.scroll {
+	width: 660px;
+	height:200px;
+	overflow: scroll;
+	overflow-x: hidden;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+.my-info {
+	padding-left: 100px;
+}
+
+.app-headers{
+	text-align: center;
+	border-top-left-radius: 25px;
+	border-top-right-radius: 25px;
+	font-size: 36px;
+	height:50px;
+	width:660px;
+	background-color: #3655b3;
+}
+
+.chart-text{
+	display: flex;
+	align-items: center;
+	padding-left: 5px;
+}
+
+input {
+	padding: .25em;
+	font-size: 14pt;
+  }
+
+::-webkit-scrollbar {
+	width: 10px;
+}
+  
+::-webkit-scrollbar-track {
+	background: #f1f1f1; 
+}
+   
+::-webkit-scrollbar-thumb {
+	background: #888; 
+}
+::-webkit-scrollbar-thumb:hover {
+	background: #555;
 }
